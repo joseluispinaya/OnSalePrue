@@ -1,24 +1,24 @@
-﻿@model OnSalePrue.Common.Entities.Country
+﻿@model OnSalePrue.Common.Entities.Department
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Add Department";
 }
 
-<h2>Edit</h2>
+<h2>Agregar</h2>
 
-<h4>Country</h4>
+<h4>Departamento</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form asp-action="AddDepartment">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="IdCountry" />
 
-            <partial name="_Country" />
+            <partial name="_Department" />
 
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
-                <a asp-action="Index" class="btn btn-success">Volver a Lista</a>
+                <a asp-action="Details" asp-route-id="@Model.IdCountry" class="btn btn-success">Volver a Lista</a>
             </div>
         </form>
     </div>
@@ -27,3 +27,4 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
