@@ -36,7 +36,7 @@ namespace OnSalePrue.Web.Data.Entities
         //TODO: Pending to put the correct paths
         [Display(Name = "Imagen")]
         public string ImageFullPath => ProductImages == null || ProductImages.Count == 0
-            ? $"https://localhost:44390/images/noimage.png"
+            ? $"https://localhost:44328/images/noimage.png"
             : ProductImages.FirstOrDefault().ImageFullPath;
     }
 

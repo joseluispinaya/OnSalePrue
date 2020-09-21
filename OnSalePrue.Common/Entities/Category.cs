@@ -11,13 +11,13 @@ namespace OnSalePrue.Common.Entities
         [Required]
         public string Name { get; set; }
 
-        [Display(Name = "Image")]
+        [Display(Name = "Imagen")]
         public Guid ImageId { get; set; }
 
         //TODO: Pending to put the correct paths
-        [Display(Name = "Image")]
+        [Display(Name = "Imagen")]
         public string ImageFullPath => ImageId == Guid.Empty
-            ? $"https://localhost:44390/images/noimage.png"
+            ? $"https://localhost:44328/images/noimage.png"
             : $"https://onsalejose.blob.core.windows.net/categories/{ImageId}";
     }
 
