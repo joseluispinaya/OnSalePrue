@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OnSalePrue.Common.Entities;
+using OnSalePrue.Web.Data.Entities;
 
 namespace OnSalePrue.Web.Data
 {
@@ -9,13 +10,21 @@ namespace OnSalePrue.Web.Data
         {
 
         }
+
+        public DbSet<Category> Categories { get; set; }
         public DbSet<City> Cities { get; set; }
         public DbSet<Country> Countries { get; set; }
         public DbSet<Department> Departments { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<ProductImage> ProductImages { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Category>()
+                .HasIndex(t => t.Name)
+                .IsUnique();
 
             modelBuilder.Entity<City>()
             .HasIndex(t => t.Name)
@@ -29,6 +38,10 @@ namespace OnSalePrue.Web.Data
             modelBuilder.Entity<Department>()
             .HasIndex(t => t.Name)
             .IsUnique();
+
+            modelBuilder.Entity<Product>()
+                .HasIndex(t => t.Name)
+                .IsUnique();
         }
     }
 }

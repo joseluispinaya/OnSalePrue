@@ -1,5 +1,4 @@
 ﻿using OnSalePrue.Common.Entities;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -86,5 +85,5 @@ namespace OnSalePrue.Web.Data
                 await _context.SaveChangesAsync();
             }
         }
-        }
     }
+}
