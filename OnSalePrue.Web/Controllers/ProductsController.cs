@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using OnSalePrue.Common.Entities;
 using OnSalePrue.Web.Data;
@@ -12,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace OnSalePrue.Web.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ProductsController : Controller
     {
         private readonly DataContext _context;

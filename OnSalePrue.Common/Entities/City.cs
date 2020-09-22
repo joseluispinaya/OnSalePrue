@@ -19,6 +19,10 @@ namespace OnSalePrue.Common.Entities
         [JsonIgnore]
         [NotMapped]
         public int IdDepartment { get; set; }
+
+        [JsonIgnore]
+        public Department Department { get; set; }
+
     }
 
 }

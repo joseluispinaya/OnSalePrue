@@ -129,6 +129,32 @@ namespace OnSalePrue.Web.Data
                     }
                 }
                 });
+                _context.Countries.Add(new Country
+                {
+                    Name = "Bolivia",
+                    Departments = new List<Department>
+                {
+                    new Department
+                    {
+                        Name = "Beni",
+                        Cities = new List<City>
+                        {
+                            new City { Name = "Riberalta" },
+                            new City { Name = "Trinidad" },
+                            new City { Name = "Guayaramerin" }
+                        }
+                    },
+                    new Department
+                    {
+                        Name = "Pando",
+                        Cities = new List<City>
+                        {
+                            new City { Name = "Cobija" },
+                            new City { Name = "Sena" }
+                        }
+                    }
+                }
+                });
                 await _context.SaveChangesAsync();
             }
         }
