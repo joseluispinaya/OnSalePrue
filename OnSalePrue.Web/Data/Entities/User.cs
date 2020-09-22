@@ -15,12 +15,12 @@ namespace OnSalePrue.Web.Data.Entities
         [Required]
         public string Document { get; set; }
 
-        [Display(Name = "First Name")]
+        [Display(Name = "Nombre")]
         [MaxLength(50)]
         [Required]
         public string FirstName { get; set; }
 
-        [Display(Name = "Last Name")]
+        [Display(Name = "Apellidos")]
         [MaxLength(50)]
         [Required]
         public string LastName { get; set; }
@@ -28,24 +28,24 @@ namespace OnSalePrue.Web.Data.Entities
         [MaxLength(100)]
         public string Address { get; set; }
 
-        [Display(Name = "Image")]
+        [Display(Name = "Imagen")]
         public Guid ImageId { get; set; }
 
         //TODO: Pending to put the correct paths
-        [Display(Name = "Image")]
+        [Display(Name = "Imagen")]
         public string ImageFullPath => ImageId == Guid.Empty
             ? $"https://localhost:44328/images/noimage.png"
             : $"https://onsalejose.blob.core.windows.net/users/{ImageId}";
 
-        [Display(Name = "User Type")]
+        [Display(Name = "Tipo de Usuario")]
         public UserType UserType { get; set; }
 
         public City City { get; set; }
 
-        [Display(Name = "User")]
+        [Display(Name = "Usuario")]
         public string FullName => $"{FirstName} {LastName}";
 
-        [Display(Name = "User")]
+        [Display(Name = "Usuario")]
         public string FullNameWithDocument => $"{FirstName} {LastName} - {Document}";
     }
 

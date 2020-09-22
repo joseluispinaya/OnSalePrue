@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OnSalePrue.Web.Data;
 
 namespace OnSalePrue.Web.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20200922040305_Users")]
+    partial class Users
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -228,56 +230,6 @@ namespace OnSalePrue.Web.Migrations
                     b.ToTable("ProductImages");
                 });
 
-            modelBuilder.Entity("OnSalePrue.Web.Data.Entities.Order", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("Date");
-
-                    b.Property<DateTime?>("DateConfirmed");
-
-                    b.Property<DateTime?>("DateSent");
-
-                    b.Property<int>("OrderStatus");
-
-                    b.Property<string>("Remarks");
-
-                    b.Property<string>("UserId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Orders");
-                });
-
-            modelBuilder.Entity("OnSalePrue.Web.Data.Entities.OrderDetail", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("OrderId");
-
-                    b.Property<decimal>("Price");
-
-                    b.Property<int?>("ProductId");
-
-                    b.Property<float>("Quantity");
-
-                    b.Property<string>("Remarks");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("OrderId");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("OrderDetails");
-                });
-
             modelBuilder.Entity("OnSalePrue.Web.Data.Entities.Product", b =>
                 {
                     b.Property<int>("Id")
@@ -445,24 +397,6 @@ namespace OnSalePrue.Web.Migrations
                 {
                     b.HasOne("OnSalePrue.Web.Data.Entities.Product")
                         .WithMany("ProductImages")
-                        .HasForeignKey("ProductId");
-                });
-
-            modelBuilder.Entity("OnSalePrue.Web.Data.Entities.Order", b =>
-                {
-                    b.HasOne("OnSalePrue.Web.Data.Entities.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-                });
-
-            modelBuilder.Entity("OnSalePrue.Web.Data.Entities.OrderDetail", b =>
-                {
-                    b.HasOne("OnSalePrue.Web.Data.Entities.Order")
-                        .WithMany("OrderDetails")
-                        .HasForeignKey("OrderId");
-
-                    b.HasOne("OnSalePrue.Web.Data.Entities.Product", "Product")
-                        .WithMany()
                         .HasForeignKey("ProductId");
                 });
 
